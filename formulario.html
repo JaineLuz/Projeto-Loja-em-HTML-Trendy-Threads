@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trendy Threads - Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      body{
+        background-color: rgb(236, 222, 238);
+      }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg -body-tertiary -navbar-light" style="background-color: #1e1a20;">
+    <div class="container-fluid">
+      <i class="bi bi-cart3"></i>
+      <a class="navbar-brand" style="color: rgb(238, 223, 240); margin: 12px;" href="index.html"><h1 style="margin-left: 10px; margin-right: 10px;"><svg style="margin: 15px; height:30px; width:30px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-heart" viewBox="0 0 16 16">
+        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+        <path d="M8 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+      </svg>Trendy Threads</h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" style="color: rgb(238, 223, 240);" href="ofertas.html"><h4 style="margin-right: 10px; ">Ofertas</h4></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" style="color: rgb(238, 223, 240);" href="formulario.html"><h5><svg style=" height:30px; width:30px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
+            </svg></h5></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" style="color: rgb(238, 223, 240);"  href="carrinho.html" ><h5><svg style=" height:30px; width:30px" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg></h5></a>
+          </li>
+        </ul>
+
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(238, 223, 240);">
+                    Filtrar
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Femininos</a></li>
+                    <li><a class="dropdown-item" href="#">Masculinos</a></li>
+                    <li><a class="dropdown-item" href="#">Infantis</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Procure" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Procurar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+    <h1 style="background-color: rgb(236, 222, 238); margin: 0; margin-left: 410px; margin-top: 20px;">Cadastre-se em nosso site!</h1>
+    <form style="background-color: rgb(236, 222, 238); margin-left: 500px; margin-top: 20px;">
+        <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-1 col-form-label">Nome:</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="Nome Completo">
+            </div>
+          </div>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-1 col-form-label">Email:</label>
+          <div class="col-sm-3">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-1 col-form-label">Senha:</label>
+          <div class="col-sm-3">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Senha">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1">
+              <label class="form-check-label" for="gridCheck1">
+                Não sou um Robô
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary" style="background-color: green; align-items: center;">Entrar</button>
+          </br>
+        </br>
+            <p style="font-weight:700; margin-left: 30px;">Já tem sua conta cadastrada?</p>
+            <a href="login.html" class="btn btn-success" style="background-color: green; margin: 20px; margin-left: 90px; margin-top: 0px;">Fazer login</a>
+          </div>
+        </div>
+      </form>
+
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

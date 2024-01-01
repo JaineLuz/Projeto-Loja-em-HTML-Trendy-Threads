@@ -1,0 +1,172 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css";
+.nav{
+    background: black;
+    color: azure;
+}
+img{
+    height:450px;
+}
+a{
+    color: black;
+}
+.form{
+    justify-items: center;
+    border-top: 10px;
+    border-left: 10px;
+    border-right: 10px;
+    border-width: 10px;
+    display: inline;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+  }
+  
+  .checkout-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  .customer-info {
+    width: 45%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .order-summary {
+    width: 45%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  input[type="submit"] {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  .order-summary img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .item-details {
+    flex-grow: 1;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .product-price,
+  .product-quantity {
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .total {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  .total h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .total p {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .product-details {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .reviews {
+    margin-top: 20px;
+  }
+  
+  .review {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .rating {
+    color: #f7d710; /* Cor das estrelas */
+    font-size: 24px;
+  }
+  
+  .star {
+    margin-right: 5px;
+  }
+  
+  .review-text {
+    margin-top: 5px;
+  }
+  
+  .review-author {
+    font-style: italic;
+    color: #666;
+  }
