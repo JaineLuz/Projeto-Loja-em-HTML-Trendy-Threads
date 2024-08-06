@@ -1,0 +1,7 @@
+{
+    "produts": [
+      { "id": 1, "title": "Moletom Lilás Snoopy", "description": "Moletom Tradicional (unissex) Com capuz e bolso Modelo Canguru", "price": "R$ 70,00" },
+      { "id": 2, "title": "Moletom Estampado Skate White", "description": "", "price":"R$ 97,00"},
+      { "id": 3, "title": "Moletom Vermelho 'Cest la vie'", "description": "", "price": "R$ 120,00"}
+    ]
+  }
