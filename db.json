@@ -29,4 +29,5 @@
       { "id": 27, "title": "Moletom Pikachu", "src": "https://i.pinimg.com/564x/5f/52/e5/5f52e55af7194c4b58f0b9e24971c1e4.jpg", "description": "", "price": "R$ 97,00"},
       { "id": 28, "title": "Moletom Listrado", "src": "https://i.pinimg.com/564x/3c/c7/56/3cc75685b7cdf361376fa394d2d91cbc.jpg", "description": "", "price": "R$ 157,00"}
     ]
-  }
+}
+
