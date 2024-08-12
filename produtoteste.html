@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="produto-container">
+        <h1 id="produto-nome"></h1>
+        <img id="produto-imagem" src="" alt="Imagem do Produto">
+        <p id="produto-descricao"></p>
+        <p id="produto-preco"></p>
+    </div>
+
+    <script>
+        // Obter o ID do produto a partir da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const produtoId = urlParams.get('id');
+
+        // URL da API para buscar detalhes do produto
+        const apiUrl = `https://api.exemplo.com/produtos/${produtoId}`;
+
+        // Buscar os detalhes do produto e preencher a página
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('produto-nome').textContent = data.nome;
+                document.getElementById('produto-imagem').src = data.imagem;
+                document.getElementById('produto-descricao').textContent = data.descricao;
+                document.getElementById('produto-preco').textContent = `R$ ${data.preco}`;
+            })
+            .catch(error => console.error('Erro ao carregar os detalhes do produto:', error));
+    </script>
+</body>
+</html>
