@@ -110,3 +110,53 @@ async function loadProducts() {
 }
 
 loadProducts();
+
+
+class Card extends HTMLElement {
+constructor() {
+super();
+}
+
+connectedCallback() {
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <div style="display:flex;gap: 20px; margin: 50px;">
+        <a href="produto.html" style="text-decoration: none;">
+            <div class="card" style="width: 12rem; margin-bottom: 15px;">
+            <img  style="height: 220px;" src="${this.getAttribute("src")}" class="card-img-top" alt="..." >
+            <div class="card-body">
+                <p class="card-text">${this.getAttribute("title")}<p style="font-weight: 700;">${this.getAttribute("price")}</p></p>
+            </div>
+            </div>
+        </a>
+        </div>
+    `;
+    this.appendChild(div);
+}
+}
+
+customElements.define("card-item", Card);
+
+async function loadProducts() {
+    const response = await fetch("http://localhost:3000/produts");
+    const products = await response.json();
+    const container = document.getElementById("products-container");
+
+    products.forEach((produts) => {
+        const productCard = document.createElement("card-item");
+        productCard.setAttribute("id", produts.id);
+        productCard.setAttribute("title", produts.title);
+        productCard.setAttribute("price", produts.price);
+        productCard.setAttribute("src", produts.src);
+        
+
+        productCard.addEventListener("click", () => {
+        // Redirecionar para a página de detalhes do produto
+        window.location.href = `index.html?id=${products.id}`;
+        });
+
+        container.appendChild(productCard);
+    });
+}
+
+loadProducts();
