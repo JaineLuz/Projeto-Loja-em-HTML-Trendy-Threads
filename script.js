@@ -71,7 +71,7 @@ connectedCallback() {
     const div = document.createElement("div");
     div.innerHTML = `
         <div style="display:flex;gap: 20px; margin: 50px;">
-        <a href="produto.html" style="text-decoration: none;">
+        <a href="produto.html?id=${this.getAttribute("id")}" style="text-decoration: none;">
             <div class="card" style="width: 12rem; margin-bottom: 15px;">
             <img  style="height: 220px;" src="${this.getAttribute("src")}" class="card-img-top" alt="..." >
             <div class="card-body">
@@ -111,52 +111,75 @@ async function loadProducts() {
 
 loadProducts();
 
+class Produto extends HTMLElement {
+  constructor() {
+      super();
+  }
 
-class Card extends HTMLElement {
-constructor() {
-super();
+  connectedCallback() {
+      const div = document.createElement("div");
+      div.innerHTML = `
+          <div class="container">
+              <div class="product">
+                  <img style="height: 250px; width: 500px; margin: 10px;" src="${this.getAttribute('src')}" alt="Produto">
+                  <div class="product-info" style="margin: 20px;">
+                      <h1>${this.getAttribute('title')}</h1>
+                      <div style="margin: 50px;">
+                          <h4 style="font-weight: 700;">Descrição do Produto: </h4>
+                          <h5>${this.getAttribute('description')}</h5>
+                          <h5>- Disponível nos Tamanhos: P, M, G, GG e XG;</h5>
+                          <h5>- Tecido: 75% algodão / 25% poliéster</h5>
+                          <h5>- Detalhes da Estampa: Alta durabilidade;</h5>
+                          <br/>
+                          <h5 style="margin-left: 80px;">Cor:</h5>
+                          <button style="border: none; background-color:rgb(236, 222, 238);">
+                              <svg xmlns="http://www.w3.org/2000/svg" style="background-color: rgb(207, 126, 231);" class="rounded-circle" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                              </svg>
+                          </button>
+                          <button style="border: none; background-color:rgb(236, 222, 238);">
+                              <svg xmlns="http://www.w3.org/2000/svg" style="background-color: rgb(17, 10, 19);" class="rounded-circle" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                              </svg>
+                          </button>
+                      </div>
+                      <p style="margin: 20px; font-weight: 700; font-size: larger;">${this.getAttribute('price')}</p>
+                      <button class="btn btn-success" style="background-color: green; margin: 20px;">Adicionar ao Carrinho</button>
+                      <a href="carrinho.html"><button class="btn btn-success" style="background-color: green; margin: 20px;">Comprar Agora</button></a>
+                  </div>
+              </div>
+          </div>
+      `;
+      this.appendChild(div);
+  }
 }
 
-connectedCallback() {
-    const div = document.createElement("div");
-    div.innerHTML = `
-        <div style="display:flex;gap: 20px; margin: 50px;">
-        <a href="produto.html" style="text-decoration: none;">
-            <div class="card" style="width: 12rem; margin-bottom: 15px;">
-            <img  style="height: 220px;" src="${this.getAttribute("src")}" class="card-img-top" alt="..." >
-            <div class="card-body">
-                <p class="card-text">${this.getAttribute("title")}<p style="font-weight: 700;">${this.getAttribute("price")}</p></p>
-            </div>
-            </div>
-        </a>
-        </div>
-    `;
-    this.appendChild(div);
-}
-}
+customElements.define("product", Produto);
 
-customElements.define("card-item", Card);
+const urlParams = new URLSearchParams(window.location.search);
+const produtoId = urlParams.get('id');
 
-async function loadProducts() {
-    const response = await fetch("http://localhost:3000/produts");
-    const products = await response.json();
-    const container = document.getElementById("products-container");
+// URL da API para buscar todos os produtos
+const apiUrl = `http://localhost:3000/produts`;
 
-    products.forEach((produts) => {
-        const productCard = document.createElement("card-item");
-        productCard.setAttribute("id", produts.id);
-        productCard.setAttribute("title", produts.title);
-        productCard.setAttribute("price", produts.price);
-        productCard.setAttribute("src", produts.src);
-        
+fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Encontre o produto específico pelo id
+        const produto = data.find(prod => prod.id == produtoId);
 
-        productCard.addEventListener("click", () => {
-        // Redirecionar para a página de detalhes do produto
-        window.location.href = `index.html?id=${products.id}`;
-        });
+        if (produto) {
+            // Crie o Web Component do produto e defina os atributos
+            const productElement = document.createElement('product');
+            productElement.setAttribute('title', produts.title);
+            productElement.setAttribute('src', produts.src); // Certifique-se de que o campo src na API é correto
+            productElement.setAttribute('description', produts.description);
+            productElement.setAttribute('price', `R$ ${produts.price}`);
 
-        container.appendChild(productCard);
-    });
-}
-
-loadProducts();
+            // Insira o produto no contêiner da página
+            document.querySelector('#produto-container').appendChild(productElement);
+        } else {
+            console.error('Produto não encontrado');
+        }
+    })
+    .catch(error => console.error('Erro ao carregar os detalhes do produto:', error));
