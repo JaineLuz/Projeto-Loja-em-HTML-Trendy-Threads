@@ -42,9 +42,9 @@ class Navbar extends HTMLElement {
                     Categorias
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="filtro_femininos.html">Femininos</a></li>
-                    <li><a class="dropdown-item" href="#">Masculinos</a></li>
-                    <li><a class="dropdown-item" href="#">Infantis</a></li>
+                    <li><a class="dropdown-item" href="femininos.html">Femininos</a></li>
+                    <li><a class="dropdown-item" href="masculinos.html">Masculinos</a></li>
+                    <li><a class="dropdown-item" href="unisex.html">Unisex</a></li>
                   </ul>
                 </li>
               </ul>
@@ -98,6 +98,7 @@ async function loadProducts() {
         productCard.setAttribute("title", produts.title);
         productCard.setAttribute("price", produts.price);
         productCard.setAttribute("src", produts.src);
+        productCard.setAttribute("category", produts.category);
         
 
         productCard.addEventListener("click", () => {
@@ -183,3 +184,7 @@ fetch(apiUrl)
         }
     })
     .catch(error => console.error('Erro ao carregar os detalhes do produto:', error));
+
+
+
+  
