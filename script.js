@@ -188,3 +188,75 @@ fetch(apiUrl)
 
 
   
+    async function getData() {
+      try {
+        const res = await fetch('http://localhost:3000/produts');
+        const json = await res.json();
+        return json;
+      } catch (erro) {
+        console.log(erro);
+      }
+    }
+
+    let produtos = await getData();
+    console.log(produtos)
+    function renderizar(value) {
+      const panel = document.querySelector('#product-panel');
+      let card = "";
+      const p = value ? produtos.filter(p => p.title.includes(value)) : produtos;
+      for (let produto of p) {
+        card += `
+          <div class="col-3">
+            <card-news text="${produto.title.length > 20 ? `${produto.title.substring(0, 20)}...` : produto.title}" value="R$ ${produto.price}" id="${produto.id}"
+              src="${produto.src}" />
+          </div>
+        `;
+      }
+      panel.innerHTML = card;
+    }
+
+    renderizar();
+
+  const search = document.querySelector('#search');
+  search.addEventListener('keyup', (event) => {
+    renderizar(event.target.value);
+  });
+
+  async function categoria(value) {
+    try {
+      const res = await fetch(`http://localhost:3000/produts/category/${value}`);
+      const json = await res.json();
+      produtos = json;
+      renderizar();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async function cresc() {
+    try {
+      const res = await fetch('http://localhost:3000/produts?sort=asc');
+      const json = await res.json();
+      produtos = json;
+      renderizar();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  async function decresc() {
+    try {
+      const res = await fetch('http://localhost:3000/produts?sort=desc');
+      const json = await res.json();
+      produtos = json;
+      renderizar();
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  window.cresc = cresc;
+  window.decresc = decresc;
+  window.categoria = categoria;
+
+  
