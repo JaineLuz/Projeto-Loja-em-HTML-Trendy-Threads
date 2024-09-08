@@ -6,7 +6,7 @@
         "src": "https://i.pinimg.com/564x/bf/35/3e/bf353e70e36d1ee6dda04c4cefb8e23c.jpg", 
         "description": "Moletom Tradicional (unissex) Com capuz e bolso Modelo Canguru", 
         "category": "Feminino",
-        "price": "R$ 70,00" 
+        "price": 70.00 
       },
       { 
         "id": 2, 
@@ -14,7 +14,7 @@
         "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxJvZDREMBCVW9MEP13jaIYrgkBsmW66zBwA&s", 
         "description": "",
         "category": "Masculino", 
-        "price":"R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 3, 
@@ -22,7 +22,7 @@
         "src": "https://i.pinimg.com/564x/a2/b6/3a/a2b63a24e01a708bbb078d998427a1ee.jpg",
         "description": "", 
         "category": "Unisex",
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 4, 
@@ -30,7 +30,7 @@
         "src": "https://a-static.mlcdn.com.br/800x560/moletom-canguru-capuz-groot-baby-blusa-de-frio-dt-style/grupodtstyle1/9639761eb47011ed84044201ac185019/514d3247685f0601f9769c0016a70e03.jpeg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 5, 
@@ -38,7 +38,7 @@
         "src": "https://i.pinimg.com/564x/69/72/5a/69725a4bcd438513979bc57baafe247f.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 6, 
@@ -46,7 +46,7 @@
         "src": "https://i.pinimg.com/736x/77/4a/da/774adafaada1658c42cebbd2d9c74a6d.jpg", 
         "description": "", 
         "category": "Unisex",
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 7, 
@@ -54,7 +54,7 @@
         "src": "https://i.pinimg.com/564x/91/8f/92/918f9252d48a937b0865c50e7f597f6e.jpg", 
         "description": "", 
         "category": "Masculino",
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 8, 
@@ -62,7 +62,7 @@
         "src": "https://i.pinimg.com/564x/26/1f/73/261f73a3cf37c399ce18241cd6a28a12.jpg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 9, 
@@ -70,7 +70,7 @@
         "src": "https://i.pinimg.com/564x/ab/17/dc/ab17dcae6f0974e599f697334ad48540.jpg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 10, 
@@ -78,7 +78,7 @@
         "src": "https://i.pinimg.com/564x/a2/a2/34/a2a23407c95a73fc5bebf5a9444da47d.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 70,00"
+        "price": 70.00
       },
       { 
         "id": 11, 
@@ -86,7 +86,7 @@
         "src": "https://i.pinimg.com/736x/b3/01/47/b3014775b75684503cacda3e8e00d8d9.jpg", 
         "description": "",
         "category": "Feminino", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 12, 
@@ -94,7 +94,7 @@
         "src": "https://i.pinimg.com/564x/82/66/cc/8266cc8d2543eddbc046090ee7e05cc9.jpg", 
         "description": "",
         "category": "Masculino", 
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 13, 
@@ -102,7 +102,7 @@
         "src": "https://i.pinimg.com/564x/b6/32/61/b632617e12efe5d6dae47e0ca8e49069.jpg", 
         "description": "",
         "category": "Feminino", 
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 14, 
@@ -110,14 +110,14 @@
         "src": "https://i.pinimg.com/564x/de/2a/36/de2a363a688e4f2bc90ea953aec08bb9.jpg", 
         "description": "", 
         "category": "Masculino",
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 15, "title": "Moletom branco Stranger Things", 
         "src": "https://i.pinimg.com/564x/2b/d8/93/2bd8931c583247f7387fbca57d1cc8bf.jpg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 16, 
@@ -125,7 +125,7 @@
         "src": "https://i.pinimg.com/564x/0c/f0/ca/0cf0cada597c5b2829d0a7a32ce51c99.jpg", 
         "description": "", 
         "category": "Unisex",
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 17, 
@@ -133,7 +133,7 @@
         "src": "https://i.pinimg.com/564x/a2/a4/1e/a2a41e4bfbcd41622b359f3f8c5e1881.jpg", 
         "description": "",
         "category": "Feminino", 
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 18, 
@@ -141,7 +141,7 @@
         "src": "https://i.pinimg.com/564x/5d/a4/38/5da43804d58b030712800b2b1ccecb70.jpg", 
         "description": "",
         "category": "Masculino", 
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 19, 
@@ -149,7 +149,7 @@
         "src": "https://i.pinimg.com/564x/94/dc/a2/94dca2298e385016e0831389772c22c1.jpg", 
         "description": "",
         "category": "Feminino", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 20, 
@@ -157,7 +157,7 @@
         "src": "https://i.pinimg.com/564x/d7/66/1b/d7661b9efdb8095b2ef780defead8757.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 21, 
@@ -165,7 +165,7 @@
         "src": "https://i.pinimg.com/564x/43/e4/25/43e4256777a0db850e57d8d0632a20a1.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 22, 
@@ -173,7 +173,7 @@
         "src": "https://i.pinimg.com/564x/d9/1b/1f/d91b1f7c64a53170bf2a0fa8e8a5c4d8.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 120,00"
+        "price": 120.00
       },
       { 
         "id": 23, 
@@ -181,7 +181,7 @@
         "src": "https://i.pinimg.com/236x/88/2e/90/882e906473a9edd9d7a7cc763f99cebb.jpg", 
         "description": "", 
         "category": "Unisex",
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 24, 
@@ -189,7 +189,7 @@
         "src": "https://i.pinimg.com/564x/e1/fe/ac/e1feac6bc3c0f7faadb034594fbbc093.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 157,00"
+        "price": 157.00
       },
       { 
         "id": 25, 
@@ -197,7 +197,7 @@
         "src": "https://i.pinimg.com/564x/9f/aa/80/9faa804cc121309a2826eb63f8eca5df.jpg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 26, 
@@ -205,7 +205,7 @@
         "src": "https://i.pinimg.com/564x/8c/6d/66/8c6d66e4115690fe0f69df8663cba004.jpg", 
         "description": "", 
         "category": "Feminino",
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 27, 
@@ -213,7 +213,7 @@
         "src": "https://i.pinimg.com/564x/5f/52/e5/5f52e55af7194c4b58f0b9e24971c1e4.jpg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 97,00"
+        "price": 97.00
       },
       { 
         "id": 28, 
@@ -221,7 +221,7 @@
         "src": "https://i.pinimg.com/564x/3c/c7/56/3cc75685b7cdf361376fa394d2d91cbc.jpg", 
         "description": "",
         "category": "Unisex", 
-        "price": "R$ 157,00"
+        "price": 157.00
       }
     ]
 }

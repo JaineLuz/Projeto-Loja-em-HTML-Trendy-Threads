@@ -1,3 +1,4 @@
+//NAV-BAR
 class Navbar extends HTMLElement {
     constructor() {
 // Always call super first in constructor
@@ -61,6 +62,9 @@ class Navbar extends HTMLElement {
   }
 
 customElements.define("nav-bar", Navbar);
+//--------------------------------------------------------------------------------------------------------------
+
+//CARD
 
 class Card extends HTMLElement {
 constructor() {
@@ -75,7 +79,7 @@ connectedCallback() {
             <div class="card" style="width: 12rem; margin-bottom: 15px;">
             <img  style="height: 220px;" src="${this.getAttribute("src")}" class="card-img-top" alt="..." >
             <div class="card-body">
-                <p class="card-text">${this.getAttribute("title")}<p style="font-weight: 700;">${this.getAttribute("price")}</p></p>
+                <p class="card-text">${this.getAttribute("title")}<p style="font-weight: 700;">R$ ${this.getAttribute("price")},00</p></p>
             </div>
             </div>
         </a>
@@ -111,6 +115,9 @@ async function loadProducts() {
 }
 
 loadProducts();
+//----------------------------------------------------------------------------------------------------------------
+
+//PRODUTO
 
 class Produto extends HTMLElement {
   constructor() {
@@ -144,119 +151,20 @@ class Produto extends HTMLElement {
                               </svg>
                           </button>
                       </div>
-                      <p style="margin: 20px; font-weight: 700; font-size: larger;">${this.getAttribute('price')}</p>
-                      <button class="btn btn-success" style="background-color: green; margin: 20px;">Adicionar ao Carrinho</button>
+                      <p style="margin: 20px; font-weight: 700; font-size: larger;">R$ ${this.getAttribute('price')},00</p>
+                      <div class="action">
+                        <button class="add-to-cart btn btn-default" style="background-color: #4ed655;" type="button" id="add-to-cart">Adicionar ao carrinho</button>
+                      </div>
                       <a href="carrinho.html"><button class="btn btn-success" style="background-color: green; margin: 20px;">Comprar Agora</button></a>
                   </div>
               </div>
           </div>
       `;
       this.appendChild(div);
+
   }
 }
 
+
 customElements.define("product", Produto);
 
-const urlParams = new URLSearchParams(window.location.search);
-const produtoId = urlParams.get('id');
-
-// URL da API para buscar todos os produtos
-const apiUrl = `http://localhost:3000/produts`;
-
-fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-        // Encontre o produto específico pelo id
-        const produto = data.find(prod => prod.id == produtoId);
-
-        if (produto) {
-            // Crie o Web Component do produto e defina os atributos
-            const productElement = document.createElement('product');
-            productElement.setAttribute('title', produts.title);
-            productElement.setAttribute('src', produts.src); // Certifique-se de que o campo src na API é correto
-            productElement.setAttribute('description', produts.description);
-            productElement.setAttribute('price', `R$ ${produts.price}`);
-
-            // Insira o produto no contêiner da página
-            document.querySelector('#produto-container').appendChild(productElement);
-        } else {
-            console.error('Produto não encontrado');
-        }
-    })
-    .catch(error => console.error('Erro ao carregar os detalhes do produto:', error));
-
-
-
-  
-    async function getData() {
-      try {
-        const res = await fetch('http://localhost:3000/produts');
-        const json = await res.json();
-        return json;
-      } catch (erro) {
-        console.log(erro);
-      }
-    }
-
-    let produtos = await getData();
-    console.log(produtos)
-    function renderizar(value) {
-      const panel = document.querySelector('#product-panel');
-      let card = "";
-      const p = value ? produtos.filter(p => p.title.includes(value)) : produtos;
-      for (let produto of p) {
-        card += `
-          <div class="col-3">
-            <card-news text="${produto.title.length > 20 ? `${produto.title.substring(0, 20)}...` : produto.title}" value="R$ ${produto.price}" id="${produto.id}"
-              src="${produto.src}" />
-          </div>
-        `;
-      }
-      panel.innerHTML = card;
-    }
-
-    renderizar();
-
-  const search = document.querySelector('#search');
-  search.addEventListener('keyup', (event) => {
-    renderizar(event.target.value);
-  });
-
-  async function categoria(value) {
-    try {
-      const res = await fetch(`http://localhost:3000/produts/category/${value}`);
-      const json = await res.json();
-      produtos = json;
-      renderizar();
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  async function cresc() {
-    try {
-      const res = await fetch('http://localhost:3000/produts?sort=asc');
-      const json = await res.json();
-      produtos = json;
-      renderizar();
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  async function decresc() {
-    try {
-      const res = await fetch('http://localhost:3000/produts?sort=desc');
-      const json = await res.json();
-      produtos = json;
-      renderizar();
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  window.cresc = cresc;
-  window.decresc = decresc;
-  window.categoria = categoria;
-
-  

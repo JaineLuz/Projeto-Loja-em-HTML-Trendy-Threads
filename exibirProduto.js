@@ -1,3 +1,4 @@
+//EXIBIR PRODUTOS
 const url = new URL(window.location.href);
 
 const params = new URLSearchParams(url.search);
@@ -9,15 +10,20 @@ async function loadProduct() {
     const product = await response.json();
     const container = document.getElementById("produto-container");
 
+    console.log(product);
+
+    const produtos = Array.isArray(product) ? product[0] : product;
+    console.log(produtos);
+
     container.innerHTML = `
     <div class="container">
               <div class="product">
-                  <img style="height: 250px; width: 500px; margin: 10px;" src="${product.src}" alt="Produto">
+                  <img id="image" style="height: 250px; width: 500px; margin: 10px;" src="${product.src}" alt="Produto">
                   <div class="product-info" style="margin: 20px;">
-                  <h1>${product.title}</h1>
+                  <h1 id="product-title">${product.title}</h1>
                       <div style="margin: 50px;">
                           <h4 style="font-weight: 700;">Descrição do Produto: </h4>
-                          <h5>${product.description}</h5>
+                          <h5 id="description">${product.description}</h5>
                           <h5>- Disponível nos Tamanhos: P, M, G, GG e XG;</h5>
                           <h5>- Tecido: 75% algodão / 25% poliéster</h5>
                           <h5>- Detalhes da Estampa: Alta durabilidade;</h5>
@@ -34,16 +40,108 @@ async function loadProduct() {
                               </svg>
                           </button>
                       </div>
-                      <p style="margin: 20px; font-weight: 700; font-size: larger;">${product.price}</p>
-                      <button class="btn btn-success" style="background-color: green; margin: 20px;">Adicionar ao Carrinho</button>
-                      <a href="carrinho.html"><button class="btn btn-success" style="background-color: green; margin: 20px;">Comprar Agora</button></a>
+                      <p id="price" style="margin: 20px; font-weight: 700; font-size: larger;">R$ ${product.price},00</p>
+                      <button id="add-to-cart" class="btn btn-success" style="background-color: green; margin: 20px;">Adicionar ao Carrinho</button>
                   </div>
               </div>
           </div>
     
     `
+    document.getElementById('product-title').innerHTML = product.title;
+    document.getElementById('price').innerHTML = `Valor: R$ ${product.price}`;
+    document.getElementById('description').innerHTML = product.description;
+    document.getElementById('image').src = product.src;
 
-    return product
+    document.getElementById('add-to-cart').addEventListener('click', () => {
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        const produtoExistente = carrinho.find(item => item.id == id);
+
+        if (!produtoExistente) {
+            carrinho.push({ id: id, quantidade: 1});
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        }
+        
+        document.location.href = 'carrinho.html?id=' + id;
+    });
+
+    return product;
+}
+  
+loadProduct()
+
+//EXIBIR NO CARRINHO
+
+let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+function renderCarrinho() {
+    const produtosContainer = document.getElementById('produtos');
+    produtosContainer.innerHTML = ""; // Limpar o container existente
+
+    // Adicionar cada item do carrinho ao DOM
+    for (let item of carrinho) {
+        getData(item.id, item.quantidade);
+    }
 }
 
-loadProduct()
+function getData(id, quantidade) {
+    fetch(`http://localhost:3000/produts/${id}`)
+        .then(response => response.json())
+        .then(data => renderizar(data, quantidade));
+}
+
+function renderizar(product, quantidade) {
+    // Cria a linha do produto
+    const produtoRow = document.createElement('tr');
+
+    produtoRow.innerHTML = `
+        <td>
+            <figure class="media">
+                <div class="img-wrap"><img src="${product.src}" style="height: 125px; width: 100px; margin: 10px;" class="img-thumbnail img-sm"></div>
+                <figcaption class="media-body">
+                    <h6 class="title text-truncate">${product.title}</h6>
+                </figcaption>
+            </figure>
+        </td>
+        <td>
+            <input type="number" value="${quantidade}" min="1" max="10" class="form-control" onchange="atualizarQuantidade(${product.id}, this.value)">
+        </td>
+        <td>
+            <div class="price-wrap">
+                <var class="price">R$ ${product.price.toFixed(2)}</var> <!-- Preço Unitário -->
+            </div>
+        </td>
+        <td>
+            <div class="price-wrap">
+                <var class="price">R$ ${(product.price * quantidade).toFixed(2)}</var> <!-- Total -->
+            </div>
+        </td>
+        <td class="text-right">
+            <button class="btn btn-outline-danger" style="padding:0px"; "width:20px" onclick="remover(${product.id})">× Remover</button>
+        </td>
+    `;
+
+    // Adiciona a linha ao container de produtos
+    document.getElementById('produtos').appendChild(produtoRow);
+}
+
+
+function atualizarQuantidade(id, novaQuantidade) {
+    carrinho = carrinho.map(item => {
+        if (item.id == id) {
+            item.quantidade = Number(novaQuantidade);
+        }
+        return item;
+    });
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    renderCarrinho();  // Re-renderizar o carrinho para atualizar os preços
+}
+
+
+function remover(id) {
+    carrinho = carrinho.filter(item => item.id != id);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    renderCarrinho();  // Re-renderizar o carrinho após a remoção
+}
+
+// Inicializar a renderização do carrinho
+renderCarrinho();
